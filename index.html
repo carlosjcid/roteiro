@@ -107,7 +107,7 @@ body{
 .pill-g{color:var(--gold);border-color:rgba(201,164,69,.35);background:rgba(201,164,69,.1)}
 .pill-m{color:var(--muted);border-color:var(--border);background:var(--card2)}
 
-/* SEÇÕES */
+/* SECOES */
 .sec{
   padding:44px 0;
   border-top:1px solid var(--border);
@@ -211,11 +211,10 @@ body{
   line-height:1.5;
 }
 .cfm li::before{
-  content:'✗';
+  content:'-';
   position:absolute;
   left:0;
   color:var(--red);
-  font-size:12px;
   font-weight:700;
 }
 
@@ -227,17 +226,28 @@ body{
   border-radius:10px;
   padding:12px 14px;
   display:grid;
-  grid-template-columns:22px 1fr;
+  grid-template-columns:32px 1fr;
   gap:12px;
   align-items:center;
   margin-bottom:4px;
 }
-.fn-ico{font-size:16px;line-height:1;text-align:center}
+.fn-num{
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:600;
+  color:var(--gold);
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:4px 0;
+  text-align:center;
+  line-height:1;
+}
 .fn-label{font-size:14px;font-weight:600;color:var(--text);line-height:1.3}
 .fn-sub{font-size:12px;color:var(--muted);font-weight:300;margin-top:2px}
-.fn-arr{text-align:center;color:var(--gold);font-size:14px;opacity:.6;margin:2px 0}
+.fn-arr{text-align:center;color:var(--gold);font-size:12px;opacity:.6;margin:2px 0}
 
-/* TIMELINE (CRONOGRAMA) */
+/* TIMELINE */
 .tl{position:relative;list-style:none;padding:0;margin:0}
 .tl::before{
   content:'';
@@ -400,7 +410,7 @@ body{
   line-height:1.4;
 }
 
-/* ROTEIROS BLOCO */
+/* ROTEIROS */
 .page-head{
   padding:32px 0 24px;
   border-bottom:1px solid var(--border);
@@ -593,7 +603,6 @@ body{
 .cfm-ok{
   display:inline-flex;
   align-items:center;
-  gap:6px;
   font-family:var(--mono);
   font-size:10.5px;
   color:var(--green);
@@ -622,7 +631,7 @@ body{
 .film-text{font-size:13px;color:var(--text);font-weight:300;line-height:1.55}
 .film-text b{color:var(--goldL);font-weight:600}
 
-/* EXECUÇÃO & HORÁRIOS */
+/* EXECUCAO & HORARIOS */
 .hrs{display:flex;flex-direction:column;gap:8px}
 .hr{
   display:flex;
@@ -678,7 +687,7 @@ body{
 .step-text{font-size:13.5px;color:var(--text);font-weight:300;line-height:1.5}
 .step-text b{color:var(--goldL);font-weight:600}
 
-/* URLs & COPIAR */
+/* URLs */
 .urls{display:flex;flex-direction:column;gap:12px}
 .url-block{
   background:var(--card);
@@ -730,7 +739,7 @@ body{
 .copy-btn.copied{color:var(--green);border-color:rgba(79,180,119,.5);background:rgba(79,180,119,.15)}
 .url-note{font-size:11.5px;color:var(--muted);font-weight:300;margin-top:6px;line-height:1.4}
 
-/* CHECKLIST TAP-FRIENDLY */
+/* CHECKLIST */
 .chk{display:flex;flex-direction:column;gap:8px}
 .ck{
   display:grid;
@@ -758,8 +767,20 @@ body{
   align-items:center;
   justify-content:center;
 }
-.ck-box.done{background:var(--green);border-color:var(--green)}
-.ck-box.done::after{content:'✓';color:#fff;font-size:12px;font-weight:700}
+.ck-box.done{
+  background:var(--green);
+  border-color:var(--green);
+}
+.ck-box.done::after{
+  content:'';
+  display:block;
+  width:5px;
+  height:10px;
+  border:solid #ffffff;
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+  margin-bottom:2px;
+}
 .ck-text{font-size:13px;color:var(--text);font-weight:300;line-height:1.45}
 .ck-text b{color:var(--goldL);font-weight:600}
 .ck-text.striked{color:var(--muted);text-decoration:line-through}
@@ -783,7 +804,7 @@ body{
 @media (min-width:600px){.reset-btn{width:auto;}}
 .reset-btn:hover{border-color:var(--gold);color:var(--gold)}
 
-/* TABELA RESPONSIVA */
+/* TABELA */
 .table-responsive{
   width:100%;
   overflow-x:auto;
@@ -868,17 +889,17 @@ body{
     <p class="sec-lead">Você grava, publica e responde nos Stories. Priscila opera o suporte visual. Felipe qualifica e agenda pelo WhatsApp. Nenhum deles cria o conteúdo: a autoridade clínica é sua.</p>
 
     <div class="funnel">
-      <div class="fn-step"><div class="fn-ico">📹</div><div><div class="fn-label">Você grava e publica</div><div class="fn-sub">Feed (carrossel ou Reels) + Stories diários</div></div></div>
+      <div class="fn-step"><div class="fn-num">01</div><div><div class="fn-label">Você grava e publica</div><div class="fn-sub">Feed (carrossel ou Reels) + Stories diários</div></div></div>
       <div class="fn-arr">↓</div>
-      <div class="fn-step"><div class="fn-ico">🎬</div><div><div class="fn-label">Priscila ajuda na filmagem</div><div class="fn-sub">Enquadramento, luz e apoio de gravação nos Reels</div></div></div>
+      <div class="fn-step"><div class="fn-num">02</div><div><div class="fn-label">Priscila ajuda na filmagem</div><div class="fn-sub">Enquadramento, luz e apoio de gravação nos Reels</div></div></div>
       <div class="fn-arr">↓</div>
-      <div class="fn-step"><div class="fn-ico">🔗</div><div><div class="fn-label">Sticker de link ativo → LP</div><div class="fn-sub">energia.drkleinerpinheiro.com adicionado em cada Story de dor</div></div></div>
+      <div class="fn-step"><div class="fn-num">03</div><div><div class="fn-label">Sticker de link ativo para LP</div><div class="fn-sub">energia.drkleinerpinheiro.com adicionado em cada Story de dor</div></div></div>
       <div class="fn-arr">↓</div>
-      <div class="fn-step"><div class="fn-ico">💬</div><div><div class="fn-label">Felipe fecha no WhatsApp</div><div class="fn-sub">Resposta rápida em até 60 min · triagem · agendamento</div></div></div>
+      <div class="fn-step"><div class="fn-num">04</div><div><div class="fn-label">Felipe fecha no WhatsApp</div><div class="fn-sub">Resposta rápida em até 60 min · triagem · agendamento</div></div></div>
     </div>
 
     <div class="card warn" style="margin-top:16px">
-      <div class="card-title">⚠️ O que não pode esperar</div>
+      <div class="card-title">O que não pode esperar</div>
       <div class="card-body">Todo Story publicado sobre cansaço ou energia precisa ter o sticker de link ativo antes de ir ao ar. Sem o link direto, o Story não converte e perde tração. <b>Você adiciona na hora da postagem.</b> Ver URLs no final deste guia.</div>
     </div>
   </div>
@@ -892,7 +913,7 @@ body{
     <p class="sec-lead">Aplique antes de gravar, não depois. Um roteiro ajustado na origem evita retrabalho e protege a sua marca médica.</p>
 
     <div class="cfm">
-      <div class="cfm-title">⚠ Nunca entra em nenhum conteúdo</div>
+      <div class="cfm-title">Nunca entra em nenhum conteúdo</div>
       <ul>
         <li>Promessa de cura, reversão ou resultado garantido (trocar por "o que a literatura mostra sobre X")</li>
         <li>Antes e depois de paciente, mesmo com consentimento expresso</li>
@@ -903,13 +924,13 @@ body{
     </div>
 
     <div class="card success">
-      <div class="card-title">✓ A troca que mantém o gancho sem o risco</div>
+      <div class="card-title">A troca que mantém o gancho sem o risco</div>
       <div class="card-body">Em vez de <em>"isso vai recuperar sua energia"</em> → <em>"é o que a evidência aponta sobre o papel desse mineral no metabolismo energético celular"</em>. O impacto continua forte e o risco regulatório é zero. Ensinar o mecanismo atrai pacientes mais qualificados.</div>
     </div>
   </div>
 </div>
 
-<!-- PAUTA S1 (CRONOGRAMA CONSOLIDADO) -->
+<!-- PAUTA S1 -->
 <div class="sec">
   <div class="wrap">
     <div class="sec-label">Cronograma · 11–17/set</div>
@@ -1094,7 +1115,7 @@ body{
         <span class="post-fmt fmt-cr">Carrossel identidade</span>
       </div>
       <div class="post-kpi">KPI · compartilhamentos + DMs · meta: ≥30 shares</div>
-      <div class="cfm-ok">✓ Régua CFM · sinais clínicos como alerta, sem diagnóstico nominal ou promessa</div>
+      <div class="cfm-ok">Régua CFM: sinais clínicos como alerta, sem diagnóstico nominal ou promessa</div>
 
       <div class="script">
         <div class="script-label">Estrutura dos slides</div>
@@ -1161,7 +1182,7 @@ Medicina com foco em Longevidade</div>
       </div>
     </div>
 
-    <!-- POST 2: SÁBADO 12/SET -->
+    <!-- POST 2: SABADO 12/SET -->
     <div class="post">
       <div class="post-header">
         <div>
@@ -1197,7 +1218,7 @@ Medicina com foco em Longevidade</div>
         <span class="post-fmt fmt-ps">Posicionamento</span>
       </div>
       <div class="post-kpi">KPI · novos seguidores</div>
-      <div class="cfm-ok">✓ Régua CFM · ponto de vista clínico fundamentado, sem garantia de cura</div>
+      <div class="cfm-ok">Régua CFM: ponto de vista clínico fundamentado, sem garantia de cura</div>
 
       <div class="filmagem">
         <div class="film-title">Formato recomendado</div>
@@ -1255,7 +1276,7 @@ Medicina com foco em Longevidade</div>
         <span class="post-fmt fmt-cr">Carrossel técnico</span>
       </div>
       <div class="post-kpi">KPI · salvamentos · meta: ≥40</div>
-      <div class="cfm-ok">✓ Régua CFM · abordagem bioquímica e fisiológica, sem prescrição pública</div>
+      <div class="cfm-ok">Régua CFM: abordagem bioquímica e fisiológica, sem prescrição pública</div>
 
       <div class="script">
         <div class="script-label">Estrutura dos slides</div>
@@ -1339,7 +1360,7 @@ Medicina com foco em Longevidade</div>
         <span class="post-fmt fmt-rl">Reels · até 60s</span>
       </div>
       <div class="post-kpi">KPI · compartilhamentos · meta: ≥30</div>
-      <div class="cfm-ok">✓ Régua CFM · mecanismo celular explicado com autoridade médica</div>
+      <div class="cfm-ok">Régua CFM: mecanismo celular explicado com autoridade médica</div>
 
       <div class="filmagem">
         <div class="film-title">Instruções para a Priscila</div>
@@ -1414,7 +1435,7 @@ Medicina com foco em Longevidade</div>
         <span class="post-fmt fmt-cr">Carrossel técnico</span>
       </div>
       <div class="post-kpi">KPI · salvamentos · meta: ≥40</div>
-      <div class="cfm-ok">✓ Régua CFM · explicação fisiológica preventiva, sem diagnósticos genéricos</div>
+      <div class="cfm-ok">Régua CFM: explicação fisiológica preventiva, sem diagnósticos genéricos</div>
 
       <div class="script">
         <div class="script-label">Estrutura dos slides</div>
@@ -1500,7 +1521,7 @@ Medicina com foco em Longevidade</div>
         <span class="post-fmt fmt-rl">Reels · bastidor · 30–45s</span>
       </div>
       <div class="post-kpi">KPI · visitas ao perfil</div>
-      <div class="cfm-ok">✓ Régua CFM · bastidores clínicos e visão de conduta própria, sem exposição de pacientes</div>
+      <div class="cfm-ok">Régua CFM: bastidores clínicos e visão de conduta própria, sem exposição de pacientes</div>
 
       <div class="filmagem">
         <div class="film-title">Instruções para a Priscila</div>
@@ -1547,16 +1568,16 @@ Medicina com foco em Longevidade</div>
   </div>
 </div>
 
-<!-- MINI-GUIA DE EXECUÇÃO, HORÁRIOS E UTMS -->
+<!-- MINI-GUIA DE EXECUCAO, HORARIOS E UTMS -->
 <div class="sec">
   <div class="wrap">
     <div class="sec-label">Operação · 11 a 17/set</div>
     <h2 class="sec-title">Horários, URLs dos Stickers e Checklist</h2>
     <p class="sec-lead">Consulte na hora da postagem para garantir pontualidade, links corretos e compliance.</p>
 
-    <!-- HORÁRIOS -->
+    <!-- HORARIOS -->
     <div class="card" style="margin-bottom:16px">
-      <div class="card-title">⏰ Janelas estratégicas de postagem</div>
+      <div class="card-title">Janelas estratégicas de postagem</div>
       <div class="hrs">
         <div class="hr">
           <div class="hr-time">Seg, Qua, Dom</div>
@@ -1579,36 +1600,36 @@ Medicina com foco em Longevidade</div>
 
     <!-- PASSO A PASSO DO STICKER -->
     <div class="card" style="margin-bottom:16px">
-      <div class="card-title">🔗 Como inserir o Sticker de link no Instagram</div>
+      <div class="card-title">Como inserir o Sticker de link no Instagram</div>
       <div class="steps">
         <div class="step"><div class="step-num">1</div><div class="step-text">Monte o Story no Instagram normalmente (vídeo, foto ou card).</div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-text">Toque no ícone de <b>adesivo</b> na parte superior do app.</div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-text">Selecione a opção <b>"Link"</b> na lista de figurinhas.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Toque no ícone de adesivo na parte superior do aplicativo.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Selecione a opção <b>"Link"</b> na lista de recursos.</div></div>
         <div class="step"><div class="step-num">4</div><div class="step-text">Cole a URL parametrizada copiada no bloco abaixo e clique em <b>"Concluir"</b>.</div></div>
-        <div class="step"><div class="step-num">5</div><div class="step-text">Posicione o botão no terço inferior do Story de forma nítida e visível.</div></div>
-        <div class="step"><div class="step-num">6</div><div class="step-text">Publique. O link já direciona para a página e para o WhatsApp do Felipe.</div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-text">Posicione o botão no terço inferior do Story de forma nítida e legível.</div></div>
+        <div class="step"><div class="step-num">6</div><div class="step-text">Publique. O link direciona para a página e para o WhatsApp do Felipe.</div></div>
       </div>
     </div>
 
     <!-- URLs DOS STICKERS -->
     <div class="urls" style="margin-bottom:20px">
       <div class="url-block">
-        <div class="url-title">Stories de dor → Landing Page (Ciclo 11–17/set)</div>
+        <div class="url-title">Stories de dor para Landing Page (Ciclo 11–17/set)</div>
         <div class="url-when">Utilizar em todos os Stories sobre fadiga, rotina, cortisol e sono</div>
         <div class="url-box">
           <div class="url-text" id="url1">https://energia.drkleinerpinheiro.com/?utm_source=instagram&utm_medium=stories&utm_campaign=cansaco_s1</div>
         </div>
-        <button class="copy-btn" onclick="copyURL('url1', this)">📋 Copiar URL</button>
+        <button class="copy-btn" onclick="copyURL('url1', this)">Copiar URL</button>
       </div>
 
       <div class="url-block">
-        <div class="url-title">Sticker direto → WhatsApp de Atendimento</div>
+        <div class="url-title">Sticker direto para WhatsApp de Atendimento</div>
         <div class="url-when">Utilizar no Story de encerramento ("Prefere falar antes de acessar a página?")</div>
         <div class="url-box">
           <div class="url-text" id="url2">https://wa.me/5562982940708?text=Oi%2C%20vi%20o%20Stories%20do%20Dr.%20Kleiner%20e%20quero%20falar%20com%20a%20equipe</div>
         </div>
-        <button class="copy-btn" onclick="copyURL('url2', this)">📋 Copiar URL</button>
-        <div class="url-note">A mensagem já abre digitada no WhatsApp. Felipe sabe exatamente de onde veio o lead.</div>
+        <button class="copy-btn" onclick="copyURL('url2', this)">Copiar URL</button>
+        <div class="url-note">A mensagem já abre digitada no WhatsApp. Felipe identifica a origem do lead.</div>
       </div>
 
       <div class="url-block">
@@ -1617,17 +1638,17 @@ Medicina com foco em Longevidade</div>
         <div class="url-box">
           <div class="url-text" id="url3">https://energia.drkleinerpinheiro.com/?utm_source=instagram&utm_medium=link&utm_campaign=energia_cansaco&utm_content=bio</div>
         </div>
-        <button class="copy-btn" onclick="copyURL('url3', this)">📋 Copiar URL</button>
+        <button class="copy-btn" onclick="copyURL('url3', this)">Copiar URL</button>
       </div>
     </div>
 
     <!-- CHECKLIST INTERATIVO -->
     <div class="card" style="margin-bottom:16px">
-      <div class="card-title">✅ Checklist de conformidade antes de publicar</div>
+      <div class="card-title">Checklist de conformidade antes de publicar</div>
       <div class="chk" id="chk">
         <div class="ck" onclick="toggleCheckRow(this)"><div class="ck-box"></div><div class="ck-text"><b>Gancho:</b> prende a atenção nos 3 segundos iniciais?</div></div>
         <div class="ck" onclick="toggleCheckRow(this)"><div class="ck-box"></div><div class="ck-text"><b>Carrossel:</b> cada slide possui ponta solta para o próximo?</div></div>
-        <div class="ck" onclick="toggleCheckRow(this)"><div class="ck-box"></div><div class="ck-text"><b>Carrossel:</b> possui CTA intermediária no slide 6 para salvar?</div></div>
+        <div class="ck" onclick="toggleCheckRow(this)"><div class="ck-box"></div><div class="ck-text"><b>Carrossel:</b> possui chamada intermediária no slide 6 para salvar?</div></div>
         <div class="ck" onclick="toggleCheckRow(this)"><div class="ck-box"></div><div class="ck-text"><b>CFM:</b> isento de promessas de cura ou tratamentos milagrosos?</div></div>
         <div class="ck" onclick="toggleCheckRow(this)"><div class="ck-box"></div><div class="ck-text"><b>CFM:</b> nenhuma menção, imagem ou depoimento de paciente?</div></div>
         <div class="ck" onclick="toggleCheckRow(this)"><div class="ck-box"></div><div class="ck-text"><b>CFM:</b> CRM-GO 15.378 visível ao final da legenda?</div></div>
@@ -1635,13 +1656,13 @@ Medicina com foco em Longevidade</div>
         <div class="ck" onclick="toggleCheckRow(this)"><div class="ck-box"></div><div class="ck-text"><b>Horário:</b> publicação alinhada com a grade (7h30 ou 18h)?</div></div>
       </div>
       <div style="margin-top:12px">
-        <button class="reset-btn" onclick="resetChecklist()">↺ Resetar checklist para o próximo post</button>
+        <button class="reset-btn" onclick="resetChecklist()">Resetar checklist para o próximo post</button>
       </div>
     </div>
 
     <!-- METAS DO CICLO -->
     <div class="card">
-      <div class="card-title">📊 Metas operacionais do ciclo</div>
+      <div class="card-title">Metas operacionais do ciclo</div>
       <div class="table-responsive">
         <table class="mtx">
           <thead>
@@ -1661,7 +1682,7 @@ Medicina com foco em Longevidade</div>
   </div>
 </div>
 
-<!-- RODAPÉ -->
+<!-- RODAPE -->
 <div class="footer">
   <div class="footer-name">Dr. Kleiner Pinheiro</div>
   <div class="footer-meta">
@@ -1686,7 +1707,7 @@ function copyURL(id, btn) {
 
 function showCopied(btn) {
   var orig = btn.innerHTML;
-  btn.innerHTML = '✓ Copiado!';
+  btn.innerHTML = 'Copiado!';
   btn.classList.add('copied');
   setTimeout(function(){
     btn.innerHTML = orig;
