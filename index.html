@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Estratégico & Roteiros · Dr. Kleiner Pinheiro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,0,700;9..144,1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E1B14;--card:#1C3527;--card2:#142a1d;--border:#264836;
+  --gold:#C9A445;--goldL:#E3C878;--text:#F5F4F1;--muted:#AFAA9E;
+  --green:#4FB477;--red:#E0664F;--warn:#E8A838;
+  --disp:'Fraunces',Georgia,serif;--body:'Montserrat',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:clamp(14px,1.6vw,16px);line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+/* CAPA */
+.cover{min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(48px,10vh,96px) clamp(20px,5vw,48px);position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 110% -10%,rgba(201,164,69,.12),transparent),radial-gradient(ellipse 50% 80% at -10% 110%,rgba(79,180,119,.06),transparent);pointer-events:none}
+.cover-eye{font-family:var(--mono);font-size:clamp(11px,1.2vw,13px);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2.4vh}
+.cover h1{font-family:var(--disp);font-size:clamp(36px,7.5vw,76px);font-weight:700;line-height:1.05;color:var(--text);margin-bottom:3vh}
+.cover h1 em{color:var(--gold);font-style:italic}
+.cover-sub{font-size:clamp(14px,1.7vw,18px);color:var(--muted);font-weight:300;max-width:560px;line-height:1.55;margin-bottom:4vh}
+.cover-pills{display:flex;gap:10px;flex-wrap:wrap}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border-radius:20px;padding:4px 14px;border:1px solid}
+.pill-g{color:var(--gold);border-color:rgba(201,164,69,.35);background:rgba(201,164,69,.1)}
+.pill-m{color:var(--muted);border-color:var(--border);background:var(--card2)}
+
+/* SEÇÃO */
+.sec{padding:clamp(56px,8vh,84px) 0;border-top:1px solid var(--border)}
+.sec-label{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2vh;display:flex;align-items:center;gap:12px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title{font-family:var(--disp);font-size:clamp(26px,4.5vw,46px);font-weight:700;line-height:1.1;color:var(--gold);margin-bottom:2vh}
+.sec-lead{font-size:clamp(14px,1.65vw,17px);color:var(--muted);font-weight:300;line-height:1.6;margin-bottom:4vh;max-width:620px}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:clamp(18px,3vw,28px);margin-bottom:14px}
+.card-title{font-size:clamp(14px,1.65vw,17px);font-weight:700;color:var(--gold);margin-bottom:.8vh;display:flex;align-items:flex-start;gap:10px}
+.card-body{font-size:clamp(13px,1.5vw,15px);color:var(--text);font-weight:300;line-height:1.65}
+.card-body b{color:var(--goldL);font-weight:600}
+.card-body em{color:var(--muted);font-style:italic}
+.card.warn{border-color:rgba(232,168,56,.35);background:rgba(232,168,56,.05)}
+.card.danger{border-color:rgba(224,102,79,.35);background:rgba(224,102,79,.06)}
+.card.success{border-color:rgba(79,180,119,.35);background:rgba(79,180,119,.05)}
+
+/* CFM */
+.cfm{border:1px solid rgba(224,102,79,.4);border-radius:12px;padding:clamp(16px,2.5vw,24px);background:rgba(224,102,79,.07);margin-bottom:20px}
+.cfm-title{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:1.2vh;font-weight:500}
+.cfm ul{list-style:none;display:flex;flex-direction:column;gap:.7vh}
+.cfm li{font-size:clamp(12px,1.45vw,14px);color:var(--text);font-weight:300;padding-left:20px;position:relative;line-height:1.5}
+.cfm li::before{content:'✗';position:absolute;left:0;color:var(--red);font-size:12px}
+
+/* FUNIL */
+.funnel{display:flex;flex-direction:column;margin:2vh 0}
+.fn-step{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 20px;display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:center;margin-bottom:4px}
+.fn-ico{font-size:16px}
+.fn-label{font-size:clamp(13px,1.5vw,15px);font-weight:600;color:var(--text)}
+.fn-sub{font-size:12px;color:var(--muted);font-weight:300}
+.fn-arr{text-align:center;color:var(--gold);font-size:14px;opacity:.5;margin-bottom:4px}
+
+/* TIMELINE */
+.tl{position:relative;list-style:none;padding:0;margin:0}
+.tl::before{content:'';position:absolute;left:14px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,164,69,.15))}
+.tl-item{position:relative;padding:0 0 clamp(28px,4vh,40px) clamp(44px,6vw,56px)}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:0;top:4px;width:30px;height:30px;border-radius:50%;background:var(--card);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--gold);flex-shrink:0}
+.tl-day{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5vh}
+.tl-fmt{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-family:var(--mono);border-radius:6px;padding:2px 10px;margin-bottom:.8vh;border:1px solid}
+.fmt-cr{color:var(--green);border-color:rgba(79,180,119,.3);background:rgba(79,180,119,.06)}
+.fmt-rl{color:var(--warn);border-color:rgba(232,168,56,.3);background:rgba(232,168,56,.06)}
+.fmt-ps{color:var(--muted);border-color:var(--border);background:var(--card2)}
+.tl-title{font-size:clamp(14px,1.7vw,17px);font-weight:700;color:var(--text);margin-bottom:.4vh}
+.tl-hook{font-size:clamp(12px,1.4vw,14px);color:var(--muted);font-weight:300;line-height:1.5;font-style:italic;margin-bottom:.5vh}
+.tl-note{font-size:clamp(12px,1.35vw,13px);color:var(--text);font-weight:300;line-height:1.5;padding:10px 14px;background:var(--card2);border-left:2px solid var(--gold);border-radius:0 8px 8px 0;margin-top:.7vh}
+.tl-note b{color:var(--goldL);font-weight:600}
+.ata{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;border-radius:4px;padding:1px 8px;margin-right:6px}
+.ata-a{background:rgba(201,164,69,.15);color:var(--gold)}
+.ata-t{background:rgba(79,180,119,.15);color:var(--green)}
+.kpi{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:.4vh}
+
+/* STORIES */
+.st-wrap{display:flex;flex-direction:column;gap:12px}
+.st-item{display:grid;grid-template-columns:32px 1fr;gap:16px;align-items:start}
+.st-num{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--gold);background:var(--card2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--gold);flex-shrink:0;margin-top:2px}
+.st-tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.3vh}
+.st-title{font-size:clamp(13px,1.55vw,15px);font-weight:600;color:var(--text);margin-bottom:.3vh}
+.st-desc{font-size:clamp(12px,1.45vw,14px);color:var(--muted);font-weight:300;line-height:1.55}
+.st-url{display:inline-flex;align-items:center;gap:6px;margin-top:.6vh;font-family:var(--mono);font-size:11px;color:var(--gold);word-break:break-all}
+
+/* ROTEIROS */
+.page-head{padding:clamp(40px,7vh,70px) 0 clamp(28px,4vh,48px);border-bottom:1px solid var(--border)}
+.page-eye{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5vh}
+.page-title{font-family:var(--disp);font-size:clamp(28px,5vw,50px);font-weight:700;color:var(--text);line-height:1.1;margin-bottom:1.5vh}
+.page-title em{color:var(--gold);font-style:italic}
+.page-sub{font-size:clamp(13px,1.5vw,16px);color:var(--muted);font-weight:300;line-height:1.55;max-width:580px}
+.hook-alert{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--red);background:rgba(224,102,79,.12);border:1px solid rgba(224,102,79,.3);border-radius:6px;padding:4px 12px;margin-top:1.5vh;font-weight:500}
+
+.post{padding:clamp(44px,6vh,64px) 0;border-top:1px solid var(--border)}
+.post-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:2.5vh}
+.post-day{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.post-fmt{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;border-radius:6px;padding:3px 12px;border:1px solid}
+.post-title{font-family:var(--disp);font-size:clamp(20px,3.2vw,32px);font-weight:700;color:var(--text);line-height:1.15;margin-bottom:.5vh}
+.post-kpi{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:2.5vh}
+
+.script{margin-bottom:2.5vh}
+.script-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5vh;display:flex;align-items:center;gap:10px}
+.script-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+.slides{display:flex;flex-direction:column;gap:10px}
+.slide{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:clamp(16px,2.5vw,24px)}
+.slide-num{font-family:var(--mono);font-size:10px;color:var(--gold);font-weight:500;margin-bottom:.5vh;display:flex;align-items:center;gap:10px}
+.slide-num .slide-tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.slide-text{font-size:clamp(13px,1.5vw,15px);color:var(--text);font-weight:400;line-height:1.6}
+.slide-text b{color:var(--goldL);font-weight:600}
+.slide-text em{color:var(--muted);font-style:italic}
+.slide-text .hook{font-size:clamp(14px,1.8vw,17px);font-weight:700;color:var(--text);display:block;margin-bottom:.5vh}
+.slide-note{margin-top:.8vh;font-size:12px;color:var(--muted);font-style:italic;padding-left:12px;border-left:2px solid var(--border)}
+.slide.cta-mid{border-color:rgba(201,164,69,.4);background:rgba(201,164,69,.06)}
+.slide.cta-end{border-color:rgba(79,180,119,.4);background:rgba(79,180,119,.05)}
+
+.reel-blocks{display:flex;flex-direction:column;gap:8px}
+.reel-block{background:var(--card2);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:clamp(14px,2vw,20px)}
+.reel-time{font-family:var(--mono);font-size:11px;color:var(--gold);font-weight:500;margin-bottom:.4vh}
+.reel-fala{font-size:clamp(13px,1.5vw,15px);color:var(--text);font-weight:400;line-height:1.6}
+.reel-fala b{color:var(--goldL);font-weight:600}
+.reel-fala em{color:var(--muted);font-style:italic}
+.reel-dir{margin-top:.5vh;font-size:12px;color:var(--warn);font-style:italic}
+
+.legenda{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:clamp(16px,2.5vw,24px);margin-bottom:2.5vh}
+.leg-text{font-size:clamp(13px,1.5vw,15px);color:var(--text);font-weight:300;line-height:1.7;white-space:pre-line}
+.leg-text b{color:var(--goldL);font-weight:600}
+
+.ganchos{display:flex;flex-direction:column;gap:8px;margin-bottom:2.5vh}
+.gancho{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:center}
+.gancho-num{font-family:var(--mono);font-size:10px;color:var(--gold);font-weight:500}
+.gancho-text{font-size:clamp(13px,1.5vw,15px);color:var(--text);font-weight:300;line-height:1.5;font-style:italic}
+
+.cfm-ok{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--green);background:rgba(79,180,119,.1);border:1px solid rgba(79,180,119,.3);border-radius:20px;padding:4px 14px;margin-bottom:2vh}
+.filmagem{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:2vh}
+.film-title{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.6vh}
+.film-text{font-size:clamp(13px,1.5vw,14px);color:var(--text);font-weight:300;line-height:1.55}
+.film-text b{color:var(--goldL);font-weight:600}
+
+/* EXECUÇÃO */
+.hrs{display:flex;flex-direction:column;gap:8px}
+.hr{display:grid;grid-template-columns:100px 1fr;gap:14px;align-items:start;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px}
+.hr-time{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--gold)}
+.hr-desc{font-size:14px;color:var(--text);font-weight:400;line-height:1.4}
+.hr-desc em{color:var(--muted);font-size:12px;font-style:normal;display:block;margin-top:3px}
+
+.urls{display:flex;flex-direction:column;gap:10px}
+.url-block{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:clamp(14px,3vw,20px)}
+.url-title{font-weight:700;color:var(--gold);font-size:14px;margin-bottom:.5vh}
+.url-when{font-size:12px;color:var(--muted);font-weight:300;margin-bottom:.8vh}
+.url-box{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:8px}
+.url-text{font-family:var(--mono);font-size:12px;color:var(--goldL);word-break:break-all;line-height:1.5}
+.copy-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(201,164,69,.15);border:1px solid rgba(201,164,69,.3);border-radius:6px;padding:5px 12px;font-family:var(--mono);font-size:11px;color:var(--gold);cursor:pointer;transition:.2s;font-weight:500}
+.copy-btn:hover{background:rgba(201,164,69,.25)}
+.copy-btn.copied{color:var(--green);border-color:rgba(79,180,119,.4);background:rgba(79,180,119,.1)}
+
+.steps{display:flex;flex-direction:column;gap:8px}
+.step{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+.step-num{width:28px;height:28px;border-radius:50%;background:rgba(201,164,69,.15);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--gold);flex-shrink:0;margin-top:2px}
+.step-text{font-size:14px;color:var(--text);font-weight:300;line-height:1.5;padding-top:3px}
+.step-text b{color:var(--goldL);font-weight:600}
+
+.chk{display:flex;flex-direction:column;gap:8px}
+.ck{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.ck-box{width:20px;height:20px;border:1.5px solid var(--gold);border-radius:5px;background:transparent;flex-shrink:0;margin-top:2px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center}
+.ck-box.done{background:var(--green);border-color:var(--green)}
+.ck-box.done::after{content:'✓';color:#fff;font-size:12px;font-weight:700}
+.ck-text{font-size:14px;color:var(--text);font-weight:300;line-height:1.5}
+.ck-text b{color:var(--goldL);font-weight:600}
+.ck-text.striked{color:var(--muted);text-decoration:line-through}
+
+.mtx{width:100%;border-collapse:collapse;margin-top:1vh}
+.mtx th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);font-weight:500}
+.mtx td{padding:12px 14px;font-size:clamp(12px,1.45vw,14px);border-bottom:1px solid var(--border);vertical-align:top;line-height:1.4}
+.mtx tr:last-child td{border-bottom:none}
+.td-l{color:var(--text);font-weight:500}
+.td-n{color:var(--red);font-family:var(--mono);font-size:12px}
+.td-m{color:var(--green);font-family:var(--mono);font-size:12px;font-weight:600}
+
+.footer{padding:clamp(44px,7vh,72px) 0;border-top:1px solid var(--border);text-align:center}
+.footer-name{font-family:var(--disp);font-size:clamp(20px,3.2vw,30px);font-weight:700;color:var(--gold);margin-bottom:1vh}
+.footer-meta{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em;line-height:1.8}
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="cover">
+  <div class="wrap">
+    <div class="cover-eye">Planejamento Operacional · Instagram · 11 a 17/Set/2026</div>
+    <h1>Você produz.<br>A estratégia é <em>sua</em>.</h1>
+    <p class="cover-sub">Guia tático e roteiros adaptados para o ciclo de 7 dias com início na <b>Sexta-feira (11/set)</b> e encerramento na <b>Quinta-feira (17/set)</b>. Cada tema e ângulo alinhados aos dados do perfil e às normas do CFM.</p>
+    <div class="cover-pills">
+      <span class="pill pill-g">Semana 1: 11 a 17/set</span>
+      <span class="pill pill-g">7 roteiros estruturados</span>
+      <span class="pill pill-m">Priscila: suporte de câmera</span>
+      <span class="pill pill-m">Felipe: qualificação comercial</span>
+    </div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-label">Visão geral</div>
+    <h2 class="sec-title">Você no centro do ciclo</h2>
+    <p class="sec-lead">Você grava, publica e responde nos Stories. Priscila opera o suporte visual. Felipe qualifica e agenda pelo WhatsApp. Nenhum deles cria o conteúdo: a autoridade clínica é sua.</p>
+
+    <div class="funnel">
+      <div class="fn-step"><div class="fn-ico"></div><div><div class="fn-label">Você grava e publica</div><div class="fn-sub">Feed (carrossel ou Reels) + Stories diários</div></div></div>
+      <div class="fn-arr">↓</div>
+      <div class="fn-step"><div class="fn-ico"></div><div><div class="fn-label">Priscila ajuda na filmagem</div><div class="fn-sub">Enquadramento, luz e apoio de gravação nos Reels</div></div></div>
+      <div class="fn-arr">↓</div>
+      <div class="fn-step"><div class="fn-ico"></div><div><div class="fn-label">Sticker de link ativo → LP</div><div class="fn-sub">energia.drkleinerpinheiro.com adicionado em cada Story de dor</div></div></div>
+      <div class="fn-arr">↓</div>
+      <div class="fn-step"><div class="fn-ico"></div><div><div class="fn-label">Felipe fecha no WhatsApp</div><div class="fn-sub">Resposta rápida em até 60 min · triagem · agendamento</div></div></div>
+    </div>
+
+    <div class="card warn" style="margin-top:20px">
+      <div class="card-title">O que não pode esperar</div>
+      <div class="card-body">Todo Story publicado sobre cansaço ou energia precisa ter o sticker de link ativo antes de ir ao ar. Sem o link direto, o Story não converte e perde tração. <b>Você adiciona na hora da postagem.</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- CFM -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-label">Antes de gravar qualquer coisa</div>
+    <h2 class="sec-title">Régua do CFM</h2>
+    <p class="sec-lead">Aplique antes de gravar, não depois. Um roteiro ajustado na origem evita retrabalho e protege a sua marca médica.</p>
+
+    <div class="cfm">
+      <div class="cfm-title">⚠ Nunca entra em nenhum conteúdo</div>
+      <ul>
+        <li>Promessa de cura, reversão ou resultado garantido (trocar por "o que a literatura mostra sobre X")</li>
+        <li>Antes e depois de paciente, mesmo com consentimento expresso</li>
+        <li>Depoimento de paciente ou aspas simulando fala de caso clínico</li>
+        <li>Título de especialidade sem RQE correspondente</li>
+        <li>Testosterona, GLP-1 ou hormônio como apelo estético (sempre como dado clínico e biológico)</li>
+      </ul>
+    </div>
+
+    <div class="card success">
+      <div class="card-title">✓ A troca que mantém o gancho sem o risco</div>
+      <div class="card-body">Em vez de <em>"isso vai recuperar sua energia"</em> → <em>"é o que a evidência aponta sobre o papel desse mineral no metabolismo energético celular"</em>. O impacto continua forte e o risco regulatório é zero. Ensinar o mecanismo atrai pacientes mais qualificados.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAUTA S1 (CRONOGRAMA CONSOLIDADO) -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-label">Cronograma · 11–17/set</div>
+    <h2 class="sec-title">O que você publica e quando</h2>
+    <p class="sec-lead">Ciclo de 7 dias com início na sexta-feira (11/set) e fechamento na quinta-feira (17/set). Roteiros detalhados logo abaixo.</p>
+
+    <ul class="tl">
+
+      <li class="tl-item">
+        <div class="tl-dot">1</div>
+        <div class="tl-day">Sexta · 11/set · 18h</div>
+        <div class="tl-fmt fmt-cr">Carrossel identidade</div>
+        <div class="tl-title">O que mulheres de 40+ normalizam e não deveriam</div>
+        <div class="tl-hook">Conteúdo direto para o público principal do perfil (53% mulheres 35–54). Cansaço, sono ruim, energia baixa como sinais, não como "coisa da idade".</div>
+        <div class="tl-note"><b>Priscila:</b> não precisa de filmagem. Arte em carrossel com texto forte e fundo escuro.</div>
+        <div><span class="ata ata-a">ATRAÇÃO</span></div>
+        <div class="kpi">KPI · compartilhamentos + DMs (meta: ≥30 shares)</div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-dot">2</div>
+        <div class="tl-day">Sábado · 12/set · Stories</div>
+        <div class="tl-fmt fmt-ps">Stories · sem feed</div>
+        <div class="tl-title">Stories do dia, sequência de vínculo</div>
+        <div class="tl-hook">Manhã com bastidor leve e tarde com caixa de perguntas sobre disposição. Dia de manutenção de relacionamento e triagem de leads pelo Felipe.</div>
+        <div class="tl-note"><b>Priscila:</b> não participa. Vídeos gravados diretamente do seu celular. Felipe monitora as respostas.</div>
+        <div><span class="ata ata-a">ATRAÇÃO</span></div>
+        <div class="kpi">KPI · respostas nos Stories</div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-dot">3</div>
+        <div class="tl-day">Domingo · 13/set · 18h</div>
+        <div class="tl-fmt fmt-ps">Posicionamento</div>
+        <div class="tl-title">Exame normal não é o mesmo que saudável</div>
+        <div class="tl-hook">Seu ponto de vista clínico: estar dentro da referência laboratorial significa ausência de doença aguda, não funcionamento ótimo. Investigar essa diferença é o seu método.</div>
+        <div class="tl-note"><b>Priscila:</b> opcional. Pode ser Reels curto (30s em câmera) ou carrossel de texto puro. Escolha o formato mais viável no domingo.</div>
+        <div><span class="ata ata-a">ATRAÇÃO</span></div>
+        <div class="kpi">KPI · novos seguidores</div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-dot">4</div>
+        <div class="tl-day">Segunda · 14/set · 7h30</div>
+        <div class="tl-fmt fmt-cr">Carrossel técnico</div>
+        <div class="tl-title">Minerais que faltam e que destroem a energia</div>
+        <div class="tl-hook">Tema: deficiências frequentes na rotina médica que não constam em exames básicos. Você ensina o mecanismo e gera alto volume de salvamentos.</div>
+        <div class="tl-note"><b>Priscila:</b> não precisa de filmagem. Carrossel diagramado com os mecanismos clínicos.</div>
+        <div><span class="ata ata-t">TÉCNICA</span></div>
+        <div class="kpi">KPI · salvamentos (meta: ≥40)</div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-dot">5</div>
+        <div class="tl-day">Terça · 15/set · 18h</div>
+        <div class="tl-fmt fmt-rl">Reels · até 60s</div>
+        <div class="tl-title">Dormiu 8h e ainda acordou cansado</div>
+        <div class="tl-hook">Você em câmera: quando o problema é metabólico e celular, mais horas de sono não resolvem — e o hemograma padrão não detecta isso.</div>
+        <div class="tl-note"><b>Priscila:</b> opera a câmera. Enquadramento da cintura para cima, luz frontal. Grave 2 a 3 takes.</div>
+        <div><span class="ata ata-a">ATRAÇÃO</span></div>
+        <div class="kpi">KPI · compartilhamentos (meta: ≥30)</div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-dot">6</div>
+        <div class="tl-day">Quarta · 16/set · 7h30</div>
+        <div class="tl-fmt fmt-cr">Carrossel técnico</div>
+        <div class="tl-title">Cortisol e o mecanismo real do cansaço</div>
+        <div class="tl-hook">Tema: cortisol cronicamente elevado não se manifesta como nervosismo, mas como fadiga matinal, ganho de gordura visceral e sono fragmentado.</div>
+        <div class="tl-note"><b>Priscila:</b> não precisa de filmagem. Arte em carrossel.</div>
+        <div><span class="ata ata-t">TÉCNICA</span></div>
+        <div class="kpi">KPI · salvamentos (meta: ≥40)</div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-dot">7</div>
+        <div class="tl-day">Quinta · 17/set · 18h</div>
+        <div class="tl-fmt fmt-rl">Reels · bastidor</div>
+        <div class="tl-title">Bastidores, o que você realmente investiga</div>
+        <div class="tl-hook">Você no consultório ou circulando pela clínica, comentando a diferença entre o que o exame padrão afere e o que a medicina integrativa busca correlacionar.</div>
+        <div class="tl-note"><b>Priscila:</b> opera a câmera em movimento ou celular apoiado em superfície fixa. Fala natural de 30 a 45 segundos.</div>
+        <div><span class="ata ata-a">ATRAÇÃO</span></div>
+        <div class="kpi">KPI · visitas ao perfil</div>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<!-- STORIES SEMANAIS -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-label">Stories · Ciclo 11–17/set</div>
+    <h2 class="sec-title">Sequência diária de ativação</h2>
+    <p class="sec-lead">Distribuída entre manhã e tarde para identificar leads com dor ativa e direcionar para o WhatsApp ou LP. Priscila não precisa participar dos Stories.</p>
+
+    <div class="st-wrap">
+      <div class="st-item">
+        <div class="st-num">1</div>
+        <div>
+          <div class="st-tag">Manhã · 8h30 · você em câmera</div>
+          <div class="st-title">Pergunta direta de abertura (10 segundos)</div>
+          <div class="st-desc">Olhe diretamente para a lente e faça uma pergunta curta sobre a disposição do dia, criando gancho para o próximo slide.</div>
+        </div>
+      </div>
+
+      <div class="st-item">
+        <div class="st-num">2</div>
+        <div>
+          <div class="st-tag">Enquete · postar em seguida</div>
+          <div class="st-title">"Você acorda descansado ou já acorda cansado?"</div>
+          <div class="st-desc">Enquete binária simples. Quem clica em "cansado" é o lead quente que o Felipe pode acompanhar.</div>
+        </div>
+      </div>
+
+      <div class="st-item">
+        <div class="st-num">3</div>
+        <div>
+          <div class="st-tag">Validação · card de texto</div>
+          <div class="st-title">Cansaço contínuo não é normalidade biológica</div>
+          <div class="st-desc">Card escuro validando que o sintoma merece investigação médica estruturada e não conformismo.</div>
+        </div>
+      </div>
+
+      <div class="st-item">
+        <div class="st-num">4</div>
+        <div>
+          <div class="st-tag">Micro-conteúdo · autoridade</div>
+          <div class="st-title">Explicação curta de 30s sobre o tema do dia</div>
+          <div class="st-desc">Comente rapidamente sobre o papel mitocondrial ou mineral no metabolismo sem fazer promessas de cura.</div>
+        </div>
+      </div>
+
+      <div class="st-item">
+        <div class="st-num">5</div>
+        <div>
+          <div class="st-tag">Conversão · sticker de link ativo</div>
+          <div class="st-title">Para quem precisa entender a raiz do problema</div>
+          <div class="st-desc">Card com sticker de link direto para a página de avaliação médica.</div>
+          <div class="st-url">energia.drkleinerpinheiro.com/?utm_source=instagram&utm_medium=stories&utm_campaign=cansaco_s1</div>
+        </div>
+      </div>
+
+      <div class="st-item">
+        <div class="st-num">6</div>
+        <div>
+          <div class="st-tag">Tarde · 17h30 · bastidores espontâneos</div>
+          <div class="st-title">Você na clínica, lendo artigos ou pós-atendimento</div>
+          <div class="st-desc">Sem script. A naturalidade humaniza a sua rotina e gera conexão imediata com o público.</div>
+        </div>
+      </div>
+
+      <div class="st-item">
+        <div class="st-num">7</div>
+        <div>
+          <div class="st-tag">Tarde · 18h · abertura para dúvidas</div>
+          <div class="st-title">Caixa de perguntas: "Sua principal dúvida sobre energia"</div>
+          <div class="st-desc">A equipe e o Felipe monitoram as dúvidas clínicas enviadas para iniciar diálogos qualificados via DM.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================= -->
+<!-- BLOCO DE ROTEIROS SEMANA 1 (11–17/SET)                   -->
+<!-- ========================================================= -->
+<div class="sec">
+  <div class="wrap">
+    <div class="page-head" style="padding-top:0">
+      <div class="page-eye">Roteiros · Semana 1 · 11–17/set/2026</div>
+      <h1 class="page-title">7 roteiros.<br>Adapte a <em>sua voz</em>.</h1>
+      <p class="page-sub">Cada roteiro é uma estrutura, não um script para decorar. Leia antes de gravar ou montar, entenda a lógica, e fale do jeito que você fala na consulta.</p>
+      <div class="hook-alert">ATENÇÃO NAS DATAS DO ROTEIRO!</div>
+    </div>
+
+    <!-- POST 1: SEXTA 11/SET -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-day">Sexta · 11/set · 18h</div>
+          <h2 class="post-title">O que mulheres de 40+ normalizam e não deveriam</h2>
+        </div>
+        <span class="post-fmt fmt-cr">Carrossel identidade</span>
+      </div>
+      <div class="post-kpi">KPI · compartilhamentos + DMs · meta: ≥30 shares</div>
+      <div class="cfm-ok">✓ Régua CFM · sinais clínicos como alerta, sem diagnóstico nominal ou promessa</div>
+
+      <div class="script">
+        <div class="script-label">Estrutura dos slides</div>
+        <div class="slides">
+          <div class="slide">
+            <div class="slide-num">Slide 1 <span class="slide-tag">· Capa</span></div>
+            <div class="slide-text">
+              <span class="hook">Cansaço, sono ruim, energia baixa.<br>Você não está exagerando e não é "coisa da idade".</span>
+            </div>
+            <div class="slide-note">Maior potencial de compartilhamento da semana (53% do público composto por mulheres 35–54).</div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slide 2 <span class="slide-tag">· Contexto</span></div>
+            <div class="slide-text">
+              Existe uma diferença entre "dentro do intervalo de referência" e "funcionando bem".<br><br>
+              A maioria das mulheres nessa faixa etária recebe exames normais e continua se sentindo exausta. Isso não é fraqueza pessoal: é uma limitação do que o exame padrão detecta.
+            </div>
+            <div class="slide-note">Ponta solta conduzindo para o próximo slide.</div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slides 3–6 <span class="slide-tag">· Sinais clínicos (um por slide)</span></div>
+            <div class="slide-text">
+              Escolha 4 a 5 sinais frequentes no seu consultório:<br><br>
+              <b>Nome do sinal</b><br>
+              Uma linha sobre o mecanismo fisiológico subjacente.<br><br>
+              <em>Exemplos: cansaço que não cede com repouso, sono fragmentado, lentidão de raciocínio no meio da tarde, perda de tônus e vitalidade.</em>
+            </div>
+          </div>
+          <div class="slide cta-mid">
+            <div class="slide-num">Slide do meio <span class="slide-tag">· CTA de retenção</span></div>
+            <div class="slide-text">
+              <b>Salve este carrossel.</b><br>
+              Você vai querer consultar isso antes de aceitar que o cansaço é normal.
+            </div>
+          </div>
+          <div class="slide cta-end">
+            <div class="slide-num">Slide final <span class="slide-tag">· Fechamento</span></div>
+            <div class="slide-text">
+              Normalizar não é o mesmo que aceitar.<br><br>
+              Esses sinais possuem investigação médica concreta e causas biológicas identificáveis.<br><br>
+              <b>Compartilhe com uma mulher que precisa ouvir isso hoje.</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Legenda</div>
+        <div class="legenda">
+          <div class="leg-text"><b>Cansaço, sono ruim, energia baixa. Você não está exagerando.</b>
+
+Existe uma diferença entre "exame normal" e "funcionando no seu potencial biológico".
+Muitas mulheres recebem laudos laboratoriais dentro da média e continuam sem energia para o próprio dia a dia.
+
+[Liste 3 a 4 sinais com uma linha explicativa cada]
+
+Normalizar o cansaço diário não é aceitar sua saúde.
+
+Compartilhe com alguém que convive com esses sinais.
+
+Dr. Kleiner Pinheiro | CRM-GO 15.378
+Medicina com foco em Longevidade</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 2: SÁBADO 12/SET -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-day">Sábado · 12/set · Stories</div>
+          <h2 class="post-title">Stories do dia, sequência de vínculo</h2>
+        </div>
+        <span class="post-fmt fmt-ps">Stories · sem feed</span>
+      </div>
+      <div class="post-kpi">KPI · respostas nos Stories</div>
+
+      <div class="script">
+        <div class="script-label">O que publicar no sábado</div>
+        <div class="reel-blocks">
+          <div class="reel-block">
+            <div class="reel-time">Manhã · 9h · você em câmera (10–15s)</div>
+            <div class="reel-fala">Vídeo leve sobre o sábado, seu momento de descompressão ou atividade ao ar livre. Sem jargão técnico. O sábado preserva o relacionamento com a audiência.<br><br><b>Não exige roteiro: fale com total espontaneidade.</b></div>
+          </div>
+          <div class="reel-block">
+            <div class="reel-time">Tarde · 17h · caixa de interação</div>
+            <div class="reel-fala">Caixa de perguntas: "Qual tem sido o maior ladrão da sua energia ultimamente?"<br><br>As respostas balizam os conteúdos seguintes e o Felipe monitora os contatos com interesse clínico.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 3: DOMINGO 13/SET -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-day">Domingo · 13/set · 18h</div>
+          <h2 class="post-title">Exame normal não é o mesmo que saudável</h2>
+        </div>
+        <span class="post-fmt fmt-ps">Posicionamento</span>
+      </div>
+      <div class="post-kpi">KPI · novos seguidores</div>
+      <div class="cfm-ok">✓ Régua CFM · ponto de vista clínico fundamentado, sem garantia de cura</div>
+
+      <div class="filmagem">
+        <div class="film-title">Formato recomendado</div>
+        <div class="film-text">
+          Pode ser gravado como Reels direto (30 a 40s em câmera) ou publicado em carrossel de texto com tipografia limpa. Defina de acordo com a sua conveniência no domingo.
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Estrutura de mensagem</div>
+        <div class="reel-blocks">
+          <div class="reel-block">
+            <div class="reel-time">Gancho direto</div>
+            <div class="reel-fala"><b>"Exame normal não significa saudável. Muitas vezes significa apenas que o laboratório parou de procurar."</b></div>
+          </div>
+          <div class="reel-block">
+            <div class="reel-time">Argumentação clínica</div>
+            <div class="reel-fala">
+              As referências laboratoriais foram estabelecidas com base em médias estatísticas de uma população, não na sua fisiologia individual.<br><br>
+              Estar na média apenas aponta que você não está em falência orgânica aguda. Não garante que suas mitocôndrias e hormônios estejam operando em nível ótimo.<br><br>
+              Ausência de doença diagnosticada não equivale à presença de saúde plena. É exatamente isso que investigamos na consulta.
+            </div>
+          </div>
+          <div class="reel-block">
+            <div class="reel-time">Chamada final</div>
+            <div class="reel-fala"><b>"Acompanhe o perfil se você não aceita ouvir que 'está tudo bem' quando seu corpo indica o contrário."</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Legenda</div>
+        <div class="legenda">
+          <div class="leg-text"><b>Exame dentro do intervalo não é sinônimo de saúde plena.</b>
+
+Estar "na média" indica apenas ausência de doenças agudas pré-estabelecidas.
+Isso não comprova que sua tireoide, seu sono ou seu eixo mitocondrial estão funcionando no potencial adequado.
+
+Existe uma fronteira evidente entre não estar doente e ter vitalidade real.
+É essa fronteira que a medicina aprofundada busca mapear.
+
+Dr. Kleiner Pinheiro | CRM-GO 15.378
+Medicina com foco em Longevidade</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 4: SEGUNDA 14/SET -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-day">Segunda · 14/set · 7h30</div>
+          <h2 class="post-title">Minerais que faltam e que destroem a energia</h2>
+        </div>
+        <span class="post-fmt fmt-cr">Carrossel técnico</span>
+      </div>
+      <div class="post-kpi">KPI · salvamentos · meta: ≥40</div>
+      <div class="cfm-ok">✓ Régua CFM · abordagem bioquímica e fisiológica, sem prescrição pública</div>
+
+      <div class="script">
+        <div class="script-label">Estrutura dos slides</div>
+        <div class="slides">
+          <div class="slide">
+            <div class="slide-num">Slide 1 <span class="slide-tag">· Capa</span></div>
+            <div class="slide-text">
+              <span class="hook">Estes minerais raramente são pedidos no seu exame de rotina.</span>
+              Mas governam sua disposição celular, clareza mental e reparação do sono.
+            </div>
+            <div class="slide-note">Alto contraste visual, tipografia sóbria, sem imagens apelativas.</div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slide 2 <span class="slide-tag">· Mecanismo</span></div>
+            <div class="slide-text">
+              A triagem padrão rastreia estados patológicos evidentes. Não analisa cofatores enzimáticos essenciais para a geração de ATP dentro da célula.
+            </div>
+            <div class="slide-note">Ponta solta puxando para o primeiro nutriente.</div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slide 3 <span class="slide-tag">· Mineral 1 (Ex: Magnésio e suas formas)</span></div>
+            <div class="slide-text">
+              <b>[Mineral Selecionado]</b><br><br>
+              Qual reação biológica ele sustenta? O que acontece no corpo quando os níveis intracelulares despencam?
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slide 4 <span class="slide-tag">· Mineral 2 (Ex: Ferro / Ferritina funcional)</span></div>
+            <div class="slide-text">
+              Mesma estrutura didática: papel na oxigenação e geração energética.
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slide 5 <span class="slide-tag">· Mineral 3 (Ex: Zinco / Cobre)</span></div>
+            <div class="slide-text">
+              Relação direta com controle inflamatório e síntese hormonal.
+            </div>
+          </div>
+          <div class="slide cta-mid">
+            <div class="slide-num">Slide 6 <span class="slide-tag">· CTA intermediária</span></div>
+            <div class="slide-text">
+              <b>Salve este conteúdo agora.</b><br>
+              Você vai precisar dessa referência antes de gastar com suplementações genéricas.
+            </div>
+          </div>
+          <div class="slide cta-end">
+            <div class="slide-num">Slide final <span class="slide-tag">· Fechamento</span></div>
+            <div class="slide-text">
+              Carências nutricionais não se resolvem com fórmulas prontas de farmácia.<br><br>
+              Se você identifica fadiga constante, isso requer diagnóstico individualizado e dosagens precisas.<br><br>
+              <b>Compartilhe com quem passa o dia dependendo de café para funcionar.</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Legenda</div>
+        <div class="legenda">
+          <div class="leg-text"><b>Exames básicos detectam emergências. Não mapeiam o funcionamento ótimo das suas células.</b>
+
+Minerais estratégicos para o foco e disposição costumam ficar fora dos pedidos laboratoriais comuns.
+
+[Liste os minerais citados com uma frase concisa para cada]
+
+Antes de repor qualquer nutriente por conta própria, investigue seu terreno biológico.
+
+Dr. Kleiner Pinheiro | CRM-GO 15.378
+Medicina com foco em Longevidade</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 5: TERÇA 15/SET -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-day">Terça · 15/set · 18h</div>
+          <h2 class="post-title">Dormiu 8h e ainda acordou cansado</h2>
+        </div>
+        <span class="post-fmt fmt-rl">Reels · até 60s</span>
+      </div>
+      <div class="post-kpi">KPI · compartilhamentos · meta: ≥30</div>
+      <div class="cfm-ok">✓ Régua CFM · mecanismo celular explicado com autoridade médica</div>
+
+      <div class="filmagem">
+        <div class="film-title">Instruções para a Priscila</div>
+        <div class="film-text">
+          <b>Enquadramento:</b> da cintura para cima, com o Dr. Kleiner centralizado.<br>
+          <b>Iluminação:</b> luz frontal suave, sem reflexos fortes no fundo.<br>
+          <b>Gravação:</b> formato vertical (9:16). Faça 2 a 3 takes para selecionar a melhor entonação.
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Roteiro de gravação</div>
+        <div class="reel-blocks">
+          <div class="reel-block">
+            <div class="reel-time">0–3s · Gancho principal</div>
+            <div class="reel-fala"><b>"Se você dormiu 8 horas seguidas e acordou exausto, o seu problema não está na quantidade de sono."</b></div>
+            <div class="reel-dir">Pausa rápida de meio segundo para sustentar a atenção.</div>
+          </div>
+          <div class="reel-block">
+            <div class="reel-time">3–12s · O problema biológico</div>
+            <div class="reel-fala">"Dormir mais não repara o corpo se a mitocôndria não estiver conseguindo produzir energia em nível celular. E o exame de rotina comum simplesmente não mede isso."</div>
+          </div>
+          <div class="reel-block">
+            <div class="reel-time">12–42s · Mecanismos da fadiga</div>
+            <div class="reel-fala">"Existem razões metabólicas claras para um sono que não restaura: desregulação do cortisol no final da noite, deficiências de micronutrientes celulares e processos inflamatórios silenciosos.<br><br><em>(Fale com as palavras e termos que utiliza nas consultas diárias).</em>"</div>
+          </div>
+          <div class="reel-block">
+            <div class="reel-time">42–52s · Diferenciação clínica</div>
+            <div class="reel-fala">"Higiene do sono é fundamental, mas não substitui a correção metabólica. O descanso real só acontece quando você trata a causa, não apenas o sintoma."</div>
+          </div>
+          <div class="reel-block">
+            <div class="reel-time">52–60s · Chamada única</div>
+            <div class="reel-fala"><b>"Me conta aqui nos comentários: ao acordar, você se sente pronto para o dia ou já acorda arrastando o corpo?"</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Variações de gancho (teste A/B)</div>
+        <div class="ganchos">
+          <div class="gancho"><div class="gancho-num">A</div><div class="gancho-text">"Dormiu 8 horas e acordou sem energia. O problema não é o seu travesseiro."</div></div>
+          <div class="gancho"><div class="gancho-num">B</div><div class="gancho-text">"Horas de sono a mais não resolvem cansaço celular. E os exames comuns não pegam isso."</div></div>
+          <div class="gancho"><div class="gancho-num">C</div><div class="gancho-text">"Você já se acostumou a acordar exausto. Mas isso tem explicação biológica, não é preguiça."</div></div>
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Legenda</div>
+        <div class="legenda">
+          <div class="leg-text"><b>Dormiu 8 horas e acordou cansado? O problema não é o sono em si.</b>
+
+Quando a causa é metabólica e celular, o corpo não restaura mesmo com horas a mais na cama.
+
+[Resuma os 3 pontos do vídeo em poucas linhas]
+
+Como você costuma acordar pela manhã: descansado ou já cansado?
+Deixe sua experiência nos comentários.
+
+Dr. Kleiner Pinheiro | CRM-GO 15.378
+Medicina com foco em Longevidade</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 6: QUARTA 16/SET -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-day">Quarta · 16/set · 7h30</div>
+          <h2 class="post-title">Cortisol e o mecanismo real do cansaço</h2>
+        </div>
+        <span class="post-fmt fmt-cr">Carrossel técnico</span>
+      </div>
+      <div class="post-kpi">KPI · salvamentos · meta: ≥40</div>
+      <div class="cfm-ok">✓ Régua CFM · explicação fisiológica preventiva, sem diagnósticos genéricos</div>
+
+      <div class="script">
+        <div class="script-label">Estrutura dos slides</div>
+        <div class="slides">
+          <div class="slide">
+            <div class="slide-num">Slide 1 <span class="slide-tag">· Capa</span></div>
+            <div class="slide-text">
+              <span class="hook">Cortisol alto não se parece com estresse.<br>Parece cansaço constante, acúmulo abdominal e sono fragmentado.</span>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slide 2 <span class="slide-tag">· Contexto</span></div>
+            <div class="slide-text">
+              O cortisol foi desenhado para resposta a desafios imediatos. O problema surge quando a sobrecarga se torna crônica e o organismo opera em regime contínuo de alerta.
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slide 3 <span class="slide-tag">· Sinal 1</span></div>
+            <div class="slide-text">
+              <b>Despertar cansado mesmo após dormir</b><br><br>
+              A alteração no ritmo circadiano do cortisol reduz as fases de sono profundo, suprimindo a recuperação biológica.
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slide 4 <span class="slide-tag">· Sinal 2</span></div>
+            <div class="slide-text">
+              <b>Gordura visceral resistente</b><br><br>
+              Níveis elevados favorecem diretamente o acúmulo lipídico na região abdominal, independente do balanço calórico.
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-num">Slide 5 <span class="slide-tag">· Sinal 3</span></div>
+            <div class="slide-text">
+              <b>Picos de irritabilidade com quedas bruscas de energia</b><br><br>
+              Sobrecarga no eixo neuroendócrino que desregula a estabilidade do foco e do humor.
+            </div>
+          </div>
+          <div class="slide cta-mid">
+            <div class="slide-num">Slide 6 <span class="slide-tag">· CTA intermediária</span></div>
+            <div class="slide-text">
+              <b>Salve este conteúdo.</b><br>
+              Você vai precisar dessa leitura para diferenciar estresse psicológico de desgaste biológico.
+            </div>
+          </div>
+          <div class="slide cta-end">
+            <div class="slide-num">Slide final <span class="slide-tag">· Fechamento</span></div>
+            <div class="slide-text">
+              Identificar esses sinais exige avaliação clínica do eixo hormonal, e não apenas aumento no consumo de cafeína.<br><br>
+              <b>Compartilhe com quem vive em sobrecarga contínua.</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Legenda</div>
+        <div class="legenda">
+          <div class="leg-text"><b>Cortisol elevado não se manifesta apenas como ansiedade. Manifesta-se como esgotamento diário.</b>
+
+3 sinais de que seu eixo biológico de estresse está sobrecarregado:
+
+▸ Despertar cansado mesmo após repouso
+▸ Aumento de gordura visceral sem alteração alimentar
+▸ Quedas acentuadas de rendimento à tarde
+
+Esses sintomas decorrem de fisiologia desregulada, não de falta de empenho.
+
+Se identificou esses sinais, salve e compartilhe com quem precisa.
+
+Dr. Kleiner Pinheiro | CRM-GO 15.378
+Medicina com foco em Longevidade</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 7: QUINTA 17/SET -->
+    <div class="post">
+      <div class="post-header">
+        <div>
+          <div class="post-day">Quinta · 17/set · 18h</div>
+          <h2 class="post-title">Bastidores, o que você realmente investiga</h2>
+        </div>
+        <span class="post-fmt fmt-rl">Reels · bastidor · 30–45s</span>
+      </div>
+      <div class="post-kpi">KPI · visitas ao perfil</div>
+      <div class="cfm-ok">✓ Régua CFM · bastidores clínicos e visão de conduta própria, sem exposição de pacientes</div>
+
+      <div class="filmagem">
+        <div class="film-title">Instruções para a Priscila</div>
+        <div class="film-text">
+          <b>Ambiente:</b> consultório, corredor ou sala de laudos.<br>
+          <b>Câmera:</b> dinâmica, acompanhando o Dr. Kleiner de forma natural ou apoiada em bancada.<br>
+          <b>Tempo:</b> vídeo dinâmico de 30 a 45 segundos.
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Roteiro de gravação</div>
+        <div class="reel-blocks">
+          <div class="reel-block">
+            <div class="reel-time">0–5s · Entrada direta</div>
+            <div class="reel-fala"><b>"Um ponto que nós sempre olhamos diferente aqui na investigação..."</b></div>
+          </div>
+          <div class="reel-block">
+            <div class="reel-time">5–30s · O diferencial prático</div>
+            <div class="reel-fala">Apresente um detalhe concreto da sua anamnese: o modo como cruza o histórico do sono com a curva metabólica, ou a análise minuciosa de micronutrientes que a maioria dos laudos desconsidera.<br><br><em>(Foque em demonstrar profundidade médica e método).</em></div>
+          </div>
+          <div class="reel-block">
+            <div class="reel-time">30–45s · Encerramento</div>
+            <div class="reel-fala"><b>"É assim que buscamos a raiz do cansaço, em vez de mascarar o sintoma com estimulantes."</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-label">Legenda</div>
+        <div class="legenda">
+          <div class="leg-text"><b>Investigação de causa na prática clínica.</b>
+
+[2 linhas contextualizando o que foi explicado no vídeo]
+
+Quando compreendemos a fisiologia do paciente, o tratamento deixa de ser genérico.
+
+Dr. Kleiner Pinheiro | CRM-GO 15.378
+Medicina com foco em Longevidade</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MINI-GUIA DE EXECUÇÃO, HORÁRIOS E UTMS -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-label">Operação · 11 a 17/set</div>
+    <h2 class="sec-title">Horários, URLs dos Stickers e Checklist</h2>
+    <p class="sec-lead">Consulte na hora da postagem para garantir pontualidade, links corretos e compliance.</p>
+
+    <!-- HORÁRIOS -->
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Janelas estratégicas de postagem</div>
+      <div class="hrs">
+        <div class="hr">
+          <div class="hr-time">Seg, Qua, Dom</div>
+          <div class="hr-desc">Feed às <b>7h30</b><em>Alcança o público executivo no início da rotina</em></div>
+        </div>
+        <div class="hr">
+          <div class="hr-time">Ter, Qui, Sex</div>
+          <div class="hr-desc">Feed às <b>18h00</b><em>Captura a audiência no término do expediente</em></div>
+        </div>
+        <div class="hr">
+          <div class="hr-time">Manhã (Diário)</div>
+          <div class="hr-desc">Stories entre <b>8h30 e 10h00</b><em>Primeiro pico diário de engajamento</em></div>
+        </div>
+        <div class="hr">
+          <div class="hr-time">Tarde (Diário)</div>
+          <div class="hr-desc">Stories entre <b>17h00 e 18h30</b><em>Segundo momento de retenção do dia</em></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASSO A PASSO DO STICKER -->
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Como inserir o Sticker de link no Instagram</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Monte o Story no Instagram normalmente (vídeo, foto ou card).</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Toque no ícone de <b>adesivo</b> na parte superior do app.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Selecione a opção <b>"Link"</b> na lista de figurinhas.</div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-text">Cole a URL parametrizada copiada no bloco abaixo e clique em <b>"Concluir"</b>.</div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-text">Posicione o botão no terço inferior do Story de forma nítida e visível.</div></div>
+        <div class="step"><div class="step-num">6</div><div class="step-text">Publique. O link já direciona para a página e para o WhatsApp do Felipe.</div></div>
+      </div>
+    </div>
+
+    <!-- URLs DOS STICKERS -->
+    <div class="urls" style="margin-bottom:24px">
+      <div class="url-block">
+        <div class="url-title">Stories de dor → Landing Page (Ciclo 11–17/set)</div>
+        <div class="url-when">Utilizar em todos os Stories sobre fadiga, rotina, cortisol e sono</div>
+        <div class="url-box">
+          <div class="url-text" id="url1">https://energia.drkleinerpinheiro.com/?utm_source=instagram&utm_medium=stories&utm_campaign=cansaco_s1</div>
+        </div>
+        <button class="copy-btn" onclick="copyURL('url1', this)">Copiar URL</button>
+      </div>
+
+      <div class="url-block">
+        <div class="url-title">Sticker direto → WhatsApp de Atendimento</div>
+        <div class="url-when">Utilizar no Story de encerramento ("Prefere falar antes de acessar a página?")</div>
+        <div class="url-box">
+          <div class="url-text" id="url2">https://wa.me/5562982940708?text=Oi%2C%20vi%20o%20Stories%20do%20Dr.%20Kleiner%20e%20quero%20falar%20com%20a%20equipe</div>
+        </div>
+        <button class="copy-btn" onclick="copyURL('url2', this)">Copiar URL</button>
+      </div>
+
+      <div class="url-block">
+        <div class="url-title">Link permanente da Bio</div>
+        <div class="url-when">Mantido fixo no perfil do Instagram</div>
+        <div class="url-box">
+          <div class="url-text" id="url3">https://energia.drkleinerpinheiro.com/?utm_source=instagram&utm_medium=link&utm_campaign=energia_cansaco&utm_content=bio</div>
+        </div>
+        <button class="copy-btn" onclick="copyURL('url3', this)">Copiar URL</button>
+      </div>
+    </div>
+
+    <!-- CHECKLIST INTERATIVO -->
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">✅ Checklist de conformidade antes de publicar</div>
+      <div class="chk" id="chk">
+        <div class="ck"><div class="ck-box" onclick="toggleCheck(this)"></div><div class="ck-text"><b>Gancho:</b> prende a atenção nos 3 segundos iniciais?</div></div>
+        <div class="ck"><div class="ck-box" onclick="toggleCheck(this)"></div><div class="ck-text"><b>Carrossel:</b> cada slide possui ponta solta para o próximo?</div></div>
+        <div class="ck"><div class="ck-box" onclick="toggleCheck(this)"></div><div class="ck-text"><b>Carrossel:</b> possui CTA intermediária no slide 6 para salvar?</div></div>
+        <div class="ck"><div class="ck-box" onclick="toggleCheck(this)"></div><div class="ck-text"><b>CFM:</b> isento de promessas de cura ou tratamentos milagrosos?</div></div>
+        <div class="ck"><div class="ck-box" onclick="toggleCheck(this)"></div><div class="ck-text"><b>CFM:</b> nenhuma menção, imagem ou depoimento de paciente?</div></div>
+        <div class="ck"><div class="ck-box" onclick="toggleCheck(this)"></div><div class="ck-text"><b>CFM:</b> CRM-GO 15.378 visível ao final da legenda?</div></div>
+        <div class="ck"><div class="ck-box" onclick="toggleCheck(this)"></div><div class="ck-text"><b>Stories:</b> sticker com link ativo inserido antes da postagem?</div></div>
+        <div class="ck"><div class="ck-box" onclick="toggleCheck(this)"></div><div class="ck-text"><b>Horário:</b> publicação alinhada com a grade (7h30 ou 18h)?</div></div>
+      </div>
+      <div style="margin-top:14px">
+        <button onclick="resetChecklist()" style="background:none;border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-family:var(--mono);font-size:11px;color:var(--muted);cursor:pointer">↺ Resetar checklist para o próximo post</button>
+      </div>
+    </div>
+
+    <!-- METAS DO CICLO -->
+    <div class="card">
+      <div class="card-title">Metas operacionais do ciclo</div>
+      <table class="mtx">
+        <thead>
+          <tr><th>Indicador</th><th>Base</th><th>Meta do Ciclo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-l">Salvamentos por carrossel</td><td class="td-n">44 (melhor post)</td><td class="td-m">≥2 posts com 40+</td></tr>
+          <tr><td class="td-l">Compartilhamentos por Reels</td><td class="td-n">71 (testosterona)</td><td class="td-m">≥2 posts com 30+</td></tr>
+          <tr><td class="td-l">Cliques via sticker nos Stories</td><td class="td-n">3 em 13 dias</td><td class="td-m">≥20 no ciclo</td></tr>
+          <tr><td class="td-l">Novos seguidores líquidos</td><td class="td-n">+20 em 13 dias</td><td class="td-m">+50 no ciclo</td></tr>
+          <tr><td class="td-l">DMs qualificados (Felipe)</td><td class="td-n">Não rastreado</td><td class="td-m">≥10 no período</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- RODAPÉ -->
+<div class="footer">
+  <div class="footer-name">Dr. Kleiner Pinheiro</div>
+  <div class="footer-meta">
+    CRM-GO 15.378 · Medicina com foco em Longevidade<br>
+    Planejamento Tático e Conteúdo: CJC Consultoria · Setembro de 2026
+  </div>
+</div>
+
+<script>
+function copyURL(id, btn) {
+  var text = document.getElementById(id).textContent.trim();
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(function(){
+      btn.textContent = '✓ Copiado';
+      btn.classList.add('copied');
+      setTimeout(function(){ btn.textContent = '📋 Copiar URL'; btn.classList.remove('copied'); }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✓ Copiado';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = '📋 Copiar URL'; btn.classList.remove('copied'); }, 2000);
+  }
+}
+
+function toggleCheck(box) {
+  box.classList.toggle('done');
+  var label = box.nextElementSibling;
+  if (box.classList.contains('done')) label.classList.add('striked');
+  else label.classList.remove('striked');
+}
+
+function resetChecklist() {
+  document.querySelectorAll('.ck-box').forEach(function(b){
+    b.classList.remove('done');
+    b.nextElementSibling.classList.remove('striked');
+  });
+}
+</script>
+</body>
+</html>
