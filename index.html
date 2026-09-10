@@ -1025,7 +1025,7 @@ function copyURL(id, btn) {
     navigator.clipboard.writeText(text).then(function(){
       btn.textContent = '✓ Copiado';
       btn.classList.add('copied');
-      setTimeout(function(){ btn.textContent = '📋 Copiar URL'; btn.classList.remove('copied'); }, 2000);
+      setTimeout(function(){ btn.textContent = 'Copiar URL'; btn.classList.remove('copied'); }, 2000);
     });
   } else {
     var ta = document.createElement('textarea');
@@ -1036,7 +1036,7 @@ function copyURL(id, btn) {
     document.body.removeChild(ta);
     btn.textContent = '✓ Copiado';
     btn.classList.add('copied');
-    setTimeout(function(){ btn.textContent = '📋 Copiar URL'; btn.classList.remove('copied'); }, 2000);
+    setTimeout(function(){ btn.textContent = 'Copiar URL'; btn.classList.remove('copied'); }, 2000);
   }
 }
 
